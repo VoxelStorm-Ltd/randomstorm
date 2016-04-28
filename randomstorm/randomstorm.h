@@ -5,12 +5,12 @@
 
 class randomstorm {
 private:
-  static uint32_t constexpr default_seed = 1337;      // the program-wide default random seed
-  uint32_t seed = default_seed;                       // assigned a value from lastseed on object construction
+  static uint32_t constexpr default_seed = 1337;                                // the program-wide default random seed
+  uint32_t seed = default_seed;                                                 // assigned a value from lastseed on object construction
 
 public:
   using generator_type = std::mt19937;
-  generator_type generator;                           // the random engine (TODO: consider implementing http://stackoverflow.com/a/1227137/1678468)
+  generator_type generator;                                                     // the random engine (TODO: consider implementing http://stackoverflow.com/a/1227137/1678468)
 
 public:
   randomstorm(uint32_t seed = default_seed);

@@ -67,7 +67,7 @@ char randomstorm::get_random_char_alphanum_upper() {
   // include the entire range from 0 to Z, see http://www.asciitable.com/
   unsigned int constexpr gap('A' - '9' - 1);
   char result(get_random_uint('0', 'Z' - gap));
-  if(result > '9') {                    // bridge the gap between 9 and A
+  if(result > '9') {                                                            // bridge the gap between 9 and A
     result += gap;
   }
   return result;
@@ -77,7 +77,7 @@ char randomstorm::get_random_char_alphanum_lower() {
   // include the entire range from 0 to z, see http://www.asciitable.com/
   unsigned int constexpr gap('a' - '9' - 1);
   char result(get_random_uint('0', 'z' - gap));
-  if(result > '9') {                    // bridge the gap between 9 and a
+  if(result > '9') {                                                            // bridge the gap between 9 and a
     result += gap;
   }
   return result;
