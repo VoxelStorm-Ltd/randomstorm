@@ -1,5 +1,4 @@
-#ifndef RANDOMSTORM_H_INCLUDED
-#define RANDOMSTORM_H_INCLUDED
+#pragma once
 
 #include <random>
 
@@ -37,5 +36,3 @@ public:
   char   get_random_char_alphanum_lower();
   char   get_random_char_digit();
 };
-
-#endif // RANDOMSTORM_H_INCLUDED
