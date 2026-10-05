@@ -1,9 +1,7 @@
 #include "randomstorm.h"
-//#include <random>
-//#include "vmath.h"
 
-randomstorm::randomstorm(uint32_t seed)
-  : seed(seed) {
+randomstorm::randomstorm(uint32_t this_seed)
+  : seed(this_seed) {
   /// Default constructor
 }
 
@@ -47,42 +45,42 @@ bool randomstorm::get_random_bool(double trueprobability) {
   return distribution(generator);
 }
 
-double randomstorm::get_random_angle_degrees() {
-  return get_random_float(0.0, 360.0);
+float randomstorm::get_random_angle_degrees() {
+  return get_random_float(0.0f, 360.0f);
 }
-double randomstorm::get_random_angle_radians() {
-  return get_random_float(0.0, 2.0 * M_PI);
+float randomstorm::get_random_angle_radians() {
+  return get_random_float(0.0f, 2.0f * static_cast<float>(M_PI));
 }
 
 char randomstorm::get_random_char_alpha_upper() {
   /// Return random ascii value for A-Z
-  return get_random_uint('A', 'Z');
+  return static_cast<char>(get_random_uint('A', 'Z'));
 }
 char randomstorm::get_random_char_alpha_lower() {
   /// Return random ascii value for a-z
-  return get_random_uint('a', 'z');
+  return static_cast<char>(get_random_uint('a', 'z'));
 }
 char randomstorm::get_random_char_alphanum_upper() {
   /// Return random ascii value for 0-9 A-Z
   // include the entire range from 0 to Z, see http://www.asciitable.com/
-  unsigned int constexpr gap('A' - '9' - 1);
-  char result(get_random_uint('0', 'Z' - gap));
+  unsigned char constexpr gap('A' - '9' - 1);
+  char result(static_cast<char>(get_random_uint('0', 'Z' - gap)));
   if(result > '9') {                                                            // bridge the gap between 9 and A
-    result += gap;
+    result = static_cast<char>(result + gap);
   }
   return result;
 }
 char randomstorm::get_random_char_alphanum_lower() {
   /// Return random ascii value for 0-9 a-z
   // include the entire range from 0 to z, see http://www.asciitable.com/
-  unsigned int constexpr gap('a' - '9' - 1);
-  char result(get_random_uint('0', 'z' - gap));
+  unsigned char constexpr gap('a' - '9' - 1);
+  char result(static_cast<char>(get_random_uint('0', 'z' - gap)));
   if(result > '9') {                                                            // bridge the gap between 9 and a
-    result += gap;
+    result = static_cast<char>(result + gap);
   }
   return result;
 }
 char randomstorm::get_random_char_digit() {
   /// Return random ascii value for 0-9
-  return get_random_uint('0', '9');
+  return static_cast<char>(get_random_uint('0', '9'));
 }

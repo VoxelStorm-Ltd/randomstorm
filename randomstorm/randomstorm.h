@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RANDOMSTORM_H_INCLUDED
+#define RANDOMSTORM_H_INCLUDED
 
 #include <random>
 
@@ -16,7 +17,7 @@ public:
   ~randomstorm();
 
   // seed control functions
-  uint32_t get_seed() const;
+  uint32_t get_seed() const __attribute__((__pure__));
   void set_seed(uint32_t newseed = default_seed);
   void reset();
 
@@ -28,11 +29,13 @@ public:
   bool         get_random_bool(double trueprobability = 0.5);
 
   // more advanced semantic random functions
-  double get_random_angle_degrees();
-  double get_random_angle_radians();
+  float  get_random_angle_degrees();
+  float  get_random_angle_radians();
   char   get_random_char_alpha_upper();
   char   get_random_char_alpha_lower();
   char   get_random_char_alphanum_upper();
   char   get_random_char_alphanum_lower();
   char   get_random_char_digit();
 };
+
+#endif // RANDOMSTORM_H_INCLUDED
